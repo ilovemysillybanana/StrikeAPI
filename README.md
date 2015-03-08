@@ -39,34 +39,45 @@ For Torrent Information:
 Return a string containing the original hash.
 
 >'torrent_title'
+
 Returns a string containing the title of the torrent
 
 >'torrent_category'
+
 Returns a string containing the category of a torrent
 
 >'sub_category'
+
 Returns a string containing the sub category of a torrent
 
 >'seeds'
+
 Returns an integer value containing the number of seeds
 
 >'leeches'
+
 Returns an integer value containing the number of leechers
 
 >'file_count'
+
 Returns an integer value containing the number of files in a torrent
 
 >'size'
+
 Returns a float value containing the amount of memory used by a torrent
 
 >'upload_date'
+
 Returns a string containing the date a torrent was uploaded
 
 >'uploader_username'
+
 Returns a string containing the torrent's uploader's user name
 
 >'file_info'
+
 Returns a hash containing information about the file
 
 >'file_names' 'file_length'
+
 Used in conjunction with file_info to get a hash of file names, and file lengths
