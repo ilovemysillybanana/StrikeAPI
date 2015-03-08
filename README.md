@@ -1,4 +1,4 @@
-# StrikeAPI
+# Ruby StrikeAPI
 There are different parameters to get different information.
 
 
