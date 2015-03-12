@@ -18,7 +18,31 @@ require 'pp'
 class Ruby_strikeAPI
 
   def constructURL(user_Hash)
-    return result = JSON.parse(open('http://getstrike.net/api/torrents/info/?hashes=' + user_Hash).read)
+    return $result = JSON.parse(open('http://getstrike.net/api/torrents/info/?hashes=' + user_Hash).read)
+  end
+
+  def getHash(request_result = nil)
+    if request_result == nil
+      return 0
+    elsif request_result == 0
+      return 0
+    else
+      return "#{$result[request_result][0]['torrent_hash']}"
+    end
+  end
+
+  def getTitle(request_result = nil)
+    if request_result == nil
+      return 0
+    elsif request_result == 0
+      return 0
+    else
+      return "#{$result[request_result][0]['torrent_title']}"
+    end
   end
 
 end
+
+Foo = Ruby_strikeAPI.new
+example = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
+puts rr = Foo.getTitle(1)
