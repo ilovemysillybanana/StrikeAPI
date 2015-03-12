@@ -32,12 +32,18 @@ class Ruby_strikeAPI
   end
 
   def getTitle(request_result = nil)
-    if request_result == nil
-      return 0
-    elsif request_result == 0
+    if request_result == nil || request_result <= 0
       return 0
     else
       return "#{$result[request_result][0]['torrent_title']}"
+    end
+  end
+
+  def getCategory(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    elsif
+      return "#{$result[request_result][0]['torrent_category']}"
     end
   end
 
