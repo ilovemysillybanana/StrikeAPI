@@ -47,6 +47,18 @@ class Ruby_strikeAPI
     end
   end
 
+  def getSubCategory(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['sub_category']}"
+    end
+  end
+
+  def getSeedCount(request_result = nil)
+    
+  end
+
 end
 
 Foo = Ruby_strikeAPI.new
