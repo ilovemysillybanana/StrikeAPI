@@ -42,7 +42,7 @@ class Ruby_strikeAPI
   def getCategory(request_result = nil)
     if request_result == nil || request_result <= 0
       return 0
-    elsif
+    else
       return "#{$result[request_result][0]['torrent_category']}"
     end
   end
@@ -56,11 +56,87 @@ class Ruby_strikeAPI
   end
 
   def getSeedCount(request_result = nil)
-    
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['seeds']}"
+    end
+  end
+
+  def getLeechCount(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['leeches']}"
+    end
+  end
+
+  def getFileCount(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['file_count']}"
+    end
+  end
+
+  def getFileSize(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['size']}"
+    end
+  end
+
+  def getUploadDate(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['upload_date']}"
+    end
+  end
+
+  def getUploaderUserName(request_result = nil)
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      return "#{$result[request_result][0]['uploader_username']}"
+    end
+  end
+
+  def getFileInformationAllInfo(request_result = nil)
+    #return "#{$result[request_result][0]['file_info']}"
+    if request_result == nil || request_result <= 0
+      return 0
+    else
+      #return $file_Information = JSON.parse("#{$result[request_result][0]['file_info']}".to_json, :quirks_mode => true )
+      return "#{$result[request_result][0]['file_info']}".to_s
+    end
+
+    #getFileInformation_FileNames()
+  end
+
+  def getFileInformation_FileNames(request_result = nil)
+    return $file_Information['file_names']
   end
 
 end
 
 Foo = Ruby_strikeAPI.new
 example = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
-puts rr = Foo.getTitle(1)
+
+#not sure why, but no matter what I do, I'm not getting the desired result
+poop = "#{example[1][0]['file_info']}"
+puts poop['file_names']#adding a [0] to this only prints the
+
+=begin
+pp = poop[1...-1].to_json
+poops = JSON.parse(pp, :quirks_mode => true)
+puts poops.to_json['file_names'][0]
+
+ep = Foo.getFileInformationAllInfo(1)
+#epp = Foo.getFileInformation_FileNames
+ss = ep.to_json
+sss = JSON.parse(ss, :quirks_mode => true)
+puts sss['file_names'] #this doesn't work
+#puts epp
+=end
