@@ -140,49 +140,5 @@ class Ruby_strikeAPI
     end
   end
 
-
 end
 
-Foo = Ruby_strikeAPI.new
-exampleStart = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
-
-
-#TEST ONE
-puts "TEST ONE"
-example = "#{exampleStart[1][0]['file_info']}"
-puts example
-
-
-puts "TEST TWO"
-puts eval(example[1...-1])['file_names']#WORKED!!!!
-
-
-puts "TEST THREE"
-example2 = Foo.getFileInformationAllInfo(1)
-puts example2
-
-example3 = Foo.getFileInformation_File_Names(1)
-puts example3
-
-example4 = Foo.getFileInformation_File_Lengths(1)
-puts example4
-
-#not sure why, but no matter what I do, I'm not getting the desired result
-
-
-
-#ppp = ActiveSupport::JSON.decde(poop.gsub(/:([a-zA-z])/,'\\1').gsub('=>', ' : '))
-#ppp = JSON.parse(poop.gsub(/:([a-zA-z]+)/,'"\\1"').gsub('=>', ': ')).symbolize_keys
-#puts ppp
-=begin
-pp = poop[1...-1].to_json
-poops = JSON.parse(pp, :quirks_mode => true)
-puts poops.to_json['file_names'][0]
-
-ep = Foo.getFileInformationAllInfo(1)
-#epp = Foo.getFileInformation_FileNames
-ss = ep.to_json
-sss = JSON.parse(ss, :quirks_mode => true)
-puts sss['file_names'] #this doesn't work
-#puts epp
-=end
