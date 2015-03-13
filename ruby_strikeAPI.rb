@@ -126,7 +126,7 @@ example = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
 
 #not sure why, but no matter what I do, I'm not getting the desired result
 poop = "#{example[1][0]['file_info']}"
-puts poop['file_names']#adding a [0] to this only prints the
+puts poop['file_names']#adding a [0] to this only prints the word "file_name"
 
 =begin
 pp = poop[1...-1].to_json
