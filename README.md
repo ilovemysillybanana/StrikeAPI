@@ -12,5 +12,7 @@ There are different parameters to get different information.
 However because the statistics are limited, usually passing in 0 as a paramater will result in being given 0.
 Passing in paramaters is optional.
 
+Results are numbere from 1-last number.
+
 There is an example class included.
 
