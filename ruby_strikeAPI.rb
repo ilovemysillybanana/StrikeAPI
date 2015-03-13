@@ -104,30 +104,76 @@ class Ruby_strikeAPI
   end
 
   def getFileInformationAllInfo(request_result = nil)
-    #return "#{$result[request_result][0]['file_info']}"
-    if request_result == nil || request_result <= 0
+
+    if(request_result == nil || request_result <= 0)
       return 0
     else
-      #return $file_Information = JSON.parse("#{$result[request_result][0]['file_info']}".to_json, :quirks_mode => true )
-      return "#{$result[request_result][0]['file_info']}".to_s
+      valueHolder = $result
+      vHolder = valueHolder[request_result][0]['file_info']
+      vv = vHolder.to_s
+      return eval(vv[1...-1])
     end
 
-    #getFileInformation_FileNames()
   end
 
-  def getFileInformation_FileNames(request_result = nil)
-    return $file_Information['file_names']
+  def getFileInformation_File_Names(request_result = nil)
+    if(request_result == nil || request_result <= 0)
+      return 0
+    else
+      valueHolder = $result
+      vHolder = valueHolder[request_result][0]['file_info']
+      vv = vHolder.to_s
+      vvv = eval(vv[1...-1])
+      return vvv['file_names']
+    end
   end
+
+  def getFileInformation_File_Lengths(request_result = nil)
+    if(request_result == nil || request_result <= 0)
+      return 0
+    else
+      valueHolder = $result
+      vHolder = valueHolder[request_result][0]['file_info']
+      vv = vHolder.to_s
+      vvv = eval(vv[1...-1])
+      return vvv['file_lengths']
+    end
+  end
+
 
 end
 
 Foo = Ruby_strikeAPI.new
-example = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
+exampleStart = Foo.constructURL('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
+
+
+#TEST ONE
+puts "TEST ONE"
+example = "#{exampleStart[1][0]['file_info']}"
+puts example
+
+
+puts "TEST TWO"
+puts eval(example[1...-1])['file_names']#WORKED!!!!
+
+
+puts "TEST THREE"
+example2 = Foo.getFileInformationAllInfo(1)
+puts example2
+
+example3 = Foo.getFileInformation_File_Names(1)
+puts example3
+
+example4 = Foo.getFileInformation_File_Lengths(1)
+puts example4
 
 #not sure why, but no matter what I do, I'm not getting the desired result
-poop = "#{example[1][0]['file_info']}"
-puts poop['file_names']#adding a [0] to this only prints the word "file_name"
 
+
+
+#ppp = ActiveSupport::JSON.decde(poop.gsub(/:([a-zA-z])/,'\\1').gsub('=>', ' : '))
+#ppp = JSON.parse(poop.gsub(/:([a-zA-z]+)/,'"\\1"').gsub('=>', ': ')).symbolize_keys
+#puts ppp
 =begin
 pp = poop[1...-1].to_json
 poops = JSON.parse(pp, :quirks_mode => true)
