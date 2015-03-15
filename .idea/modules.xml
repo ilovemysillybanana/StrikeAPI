@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../RubyScanner/.idea/RubyScanner.iml" filepath="$PROJECT_DIR$/../RubyScanner/.idea/RubyScanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/StrikeAPI.iml" filepath="$PROJECT_DIR$/.idea/StrikeAPI.iml" />
     </modules>
   </component>

@@ -1,3 +1,12 @@
+=begin
+========================================================================================================================
+Created by Jose Tobar
+Date Created: March 7, 2014
+Purpose: The purpose of this program is to give create an easy to use wrapper for Ruby user for getstrike.net/api
+For more information see: getstrike.net/api
+========================================================================================================================
+=end
+
 #this is how you include my library
 require './ruby_strikeAPI.rb'
 
