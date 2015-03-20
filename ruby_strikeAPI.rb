@@ -17,8 +17,8 @@ require 'pp'
 
 class Ruby_strikeAPI
 
-  def constructURL(user_Hash)
-    return $result = JSON.parse(open('http://getstrike.net/api/torrents/info/?hashes=' + user_Hash).read)
+  def constructURL_Hash(user_Hash)
+    return $result = JSON.parse(open('https://getstrike.net/api/torrents/info/?hashes=' + user_Hash).read)
   end
 
   def getHash(request_result = nil)
@@ -138,6 +138,12 @@ class Ruby_strikeAPI
       vvv = eval(vv[1...-1])
       return vvv['file_lengths']
     end
+  end
+
+  #new methods, getting download link
+  def getDownloadLink(user_Hash)
+    $linkInfo = JSON.parse(open('https://getstrike.net/api/torrents/downloads/?hash=' + user_Hash).read)
+    return $linkInfo['message']
   end
 
 end
