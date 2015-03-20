@@ -4,6 +4,7 @@ Created by Jose Tobar
 Date Created: March 7, 2014
 Purpose: The purpose of this program is to give create an easy to use wrapper for Ruby user for getstrike.net/api
 For more information see: getstrike.net/api
+Version 1.2
 ========================================================================================================================
 =end
 
@@ -144,6 +145,37 @@ class Ruby_strikeAPI
   def getDownloadLink(user_Hash)
     $linkInfo = JSON.parse(open('https://getstrike.net/api/torrents/downloads/?hash=' + user_Hash).read)
     return $linkInfo['message']
+  end
+
+  def searchTorrents(user_Search)
+    user_Search.gsub!(" ", "%20")#this replaces all empty spaces with % so the user doesn't have to
+    $result = JSON.parse(open('https://getstrike.net/api/torrents/search/?q=' + user_Search).read)
+    return $result
+  end
+
+  def getDownloadLinkFromSearchResult(request_result = nil)
+    if request_result == 0 || request_result == nil
+      return 0
+    else
+      return "#{$result[request_result][0]['download_link']}"
+    end
+
+  end
+
+  def getSearchPageLinkSearchResult(request_result = nil)
+    if request_result == 0 || request_result == nil
+      return 0
+    else
+      return "#{$result[request_result][0]['page']}"
+    end
+  end
+
+  def getSearchPageRSSFeed(request_result = nil)
+    if request_result == 0 || request_result == nil
+      return 0
+    else
+      return "#{$result[request_result][0]['rss_feed']}"
+    end
   end
 
 end

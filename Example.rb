@@ -21,5 +21,11 @@ exampleGetInformation = instantiateExample.getFileInformationAllInfo(1)
 #getting download link
 exampleGetDownloadLink = instantiateExample.getDownloadLink('B425907E5755031BDA4A8D1B6DCCACA97DA14C04')
 
+exampleSearchResult = instantiateExample.searchTorrents('Slackware 14.1 x86_64 DVD ISO')
+
+exampleDownloadLinkFromSearch = instantiateExample.getDownloadLinkFromSearchResult(1)
+
+puts exampleDownloadLinkFromSearch
+puts exampleSearchResult
 puts exampleGetDownloadLink
 puts exampleGetInformation
