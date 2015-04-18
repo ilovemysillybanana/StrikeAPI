@@ -16,3 +16,7 @@ Results are numbere from 1-last number.
 
 There is an example class included.
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ilovemysillybanana/strikeapi/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
