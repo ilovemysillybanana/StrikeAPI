@@ -1,4 +1,7 @@
 # Ruby StrikeAPI
+STATUS:
+This API is no longer actively developped, will accept merge requests. 
+
 This is a wrapper for the strikeapi website.
 
 To get more information about Strike go here:
