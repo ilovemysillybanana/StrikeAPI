@@ -1,6 +1,6 @@
 # Ruby StrikeAPI
 STATUS:
-This API is no longer actively developped, will accept merge requests. 
+This API is no longer actively developed, will accept merge requests. 
 
 This is a wrapper for the strikeapi website.
 
@@ -11,11 +11,11 @@ There are different parameters to get different information.
 
 > 0 is a special parameter
 
-0 will always result in the returning of an the first result which is the statistics of the query.
+0 will always result in the returning of the first result which is the statistics of the query.
 However because the statistics are limited, usually passing in 0 as a paramater will result in being given 0.
 Passing in paramaters is optional.
 
-Results are numbere from 1-last number.
+Results are numbered starting from 1.
 
 There is an example class included.
 
